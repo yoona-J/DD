@@ -3,5 +3,28 @@ GIT - 버전 관리 프로그램 정도???
 
 1. http://git-scm.com/
   깃 다운로드 및 설치
+  git --version
+  으로 버전 확인
 
-2. 
+2. git init
+  으로 깃 저장소 생성
+
+3. git status
+  로 깃 상태 확인
+
+4. 라이브러리가 너무 많아서 저장하지 않을거
+  .gitignore 파일 생성
+  내용에 node_modulses 적고 저장
+  그러면 해당 폴더는 git에 저장 안됨
+
+5. git add .
+  로 Working Directory에 있던걸 Staging Area로 올림
+
+6. git commit -m "message"
+  으로 Staging Area에 있던 걸 Git repository(LOCAL)로 올림
+  
+7. err
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+  위 에러가 뜨면 단순히 그냥 이름과 이메일 설정해주면 됨
+  
