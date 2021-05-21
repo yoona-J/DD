@@ -1,0 +1,50 @@
+
+유저모델 생성하는 시간
+
+1. model은 schema를 감싸주는 역할
+
+2. schema는 정보들을 정해주는 역할?
+
+3. models 폴터 생성
+
+4. User.js 파일 생성
+
+5. 파일에 아래 정보 쓰기
+
+const mongoose = require('mongoose')
+
+const userSchema = mongoose.Schema({
+    name: {
+        type: String,
+        maxlength: 50
+    },
+    email: {
+        type: String,
+        trim: true,
+        unique: 1
+    },
+    password: {
+        type: String,
+        minlength: 5
+    },
+    lastname: {
+        type: String,
+        maxlength: 50
+    },
+    role: {
+        type: Number,
+        default: 0
+    },
+    image: String,
+    token: {
+        type: String
+    },
+    tokenExp: {
+        type: Number
+    }
+    
+})
+
+const User = mongoose.model('User',userSchema)
+
+module.exports = { User }

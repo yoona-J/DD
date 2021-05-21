@@ -1,0 +1,34 @@
+
+1. 몽고DB 회원가입
+
+2. 클러스터 만들기
+  aws로 설정
+  가까운 싱가폴 선택
+  클러스터 티어는 MO Sandbox 선택
+  클러스터 네임 설정
+  create 클러스터 하면 5`6분 정도 걸림
+
+3. 몽고디비 유저 생성
+  CONNECT 클릭
+  유저이름 패스워드 생성 (yoona yoona)
+  생성 완료
+  Choose a connection method 클릭
+  Connect Your Application 선택
+  이상한 영어 카피 (mongodb+srv://yoona:<password>@yoona.lllx3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority)
+
+4. 몽구스 다운
+  터미널에서
+  npm install mongoose --save
+  그러면 package.js 에 몽구스가 들어와있음
+
+5. index.js 수정
+  const port 다음에
+
+  const mongoose  = require('mongoose')
+  mongoose.connect('아까 위 이상한 영어 붙여넣기',{
+    yserNewUrlParserl: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+  }).then(() => console.log('MongoDB Connected...'))
+    .catch(err => console.log(err))
+
+  넣기
+  <password>는 변경해주어야함

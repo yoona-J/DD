@@ -1,0 +1,31 @@
+
+1. Node.js 다운 및 설치
+
+2. 작업 폴더 생성 및 이동
+  로컽디스크 D 기준
+  mkdir Boiler_Plate
+  cd Boiler_Plate
+
+3. npm 패키지 만들기
+  npm init
+  그냥 엔터
+  aurhor은 이름 쓰기
+  나머지 그냥 엔터
+
+4. index.js 파일 생성
+
+5. Express JS 다운
+  VS Code 터미널 기준
+  npm install express --save
+
+6. https://expressjs.com/en/starter/hello-world.html
+  위 사이트에서 예제를 index.js에 붙여넣기
+
+7. package.json 수정
+  scripts 부분에 
+  "start": "node index.js",
+  추가하기
+
+8. 터미널에서 npm run start로 서버 띄우기
+
+9. 크롬에서 localhost:3000 으로 들어가면 볼 수 있음
