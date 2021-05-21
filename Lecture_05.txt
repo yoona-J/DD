@@ -22,9 +22,9 @@ GIT - 버전 관리 프로그램 정도???
 
 6. git commit -m "message"
   으로 Staging Area에 있던 걸 Git repository(LOCAL)로 올림
+  메시지는 거진 필수
   
 7. err
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
   위 에러가 뜨면 단순히 그냥 이름과 이메일 설정해주면 됨
-  
