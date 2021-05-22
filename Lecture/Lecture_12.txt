@@ -1,0 +1,10 @@
+
+토큰 생성
+
+1. 토큰 라이브러리 다운
+  npm install jsonwebtoken --save
+
+2. 쿠키 파서 다운
+  npm install cookie-parser --save
+
+3. 몰라 강의 봐라

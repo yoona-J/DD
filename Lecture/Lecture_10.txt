@@ -1,0 +1,34 @@
+
+암호화
+
+1. vscode 터미널에서 
+  npm install bcrypt --save
+
+2. User.js 에서
+  const mongoose 아래에
+    const bcrypt = require('bcrypt')
+    const saltRounds = 10
+  입력
+  const user 위에
+  userSchema.pre('save', function(next) {
+    var user = this
+
+    // password 가 수정될 때만 암호화 진행
+    if(user.isModified('password')) {
+        // 비밀번호를 암호화 시킨다.
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            if(err) return next(err)
+
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                if(err) return next(err)
+                user.password = hash
+                next()
+            })
+        })
+    } else {
+        next()
+    }
+  })
+  입력
+
+3. index.js의 app.post의 user.save가 시작되기 전에 암호화를 진행하는거임
