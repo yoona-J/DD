@@ -1,0 +1,41 @@
+
+git 서버에 올리기
+
+git - 툴이다. 소스코드 관리 툴
+
+git hub - 클라우드 서비스. 다양한 사람들과 코드를 공유할 수 있는 거. 깃을 사용하는 서비스
+
+
+1. https://github.com/
+  회원가입
+  
+
+2. rebository 생성
+  하지만 올라가지 않음
+  통신이 안전하지 않기 때문
+  SSH 설정해야함.
+
+3. git bash에서
+  ls -a ~/.ssh
+  로 ssh 유무 파악
+  없으면
+  ssh-keygen -t ed25519 -C "your_email@example.com"
+  입력 후 쭉 엔터
+  eval `ssh-agent -s`
+  로 pid 생성 후
+  ssh-add ~/.ssh/id_ed25519
+  로 ssh-agent에 add 시킴
+  만약 안된다면 
+  eval $(ssh-agent)
+  로 에이전트 시작 후 다시 입력하면 될듯?
+  
+  그 후 
+  clip < ~/.ssh/id_ed25519.pub
+  로 퍼블릭 키 복사
+
+  github - setting - ssh and gpg keys - new ssh key 클릭
+  타이틀 입력 후 key 붙여넣기
+
+이제 안전하게 통신할 수 있게 됨
+
+4. 
