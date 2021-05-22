@@ -1,0 +1,16 @@
+
+node mon - 서버의 다운 없이 소스의 변화를 감지하여 변화된 부분을 반영
+
+1. node mon 다운
+  vs 터미널에
+  npm install nodemon --save-dev
+  입력
+  dev - 로컬에서 할 때만 사용하겠다~ 라는 의미
+    그래서 package에 nodemon의 위치가 다른것과 다름
+
+2. node mon으로 실행
+  package.json의 script의 start 밑에
+    "backend": "nodemon index.js",
+  입력
+  npm run backend
+  로 실행하면 코드 변화 바로 적용됨

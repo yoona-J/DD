@@ -1,0 +1,42 @@
+
+
+1. body-parser dependency 설치
+  npm install body-parser --save
+
+2. postman 다운 및 설치 및 가입
+
+3. Register Route 생성
+  index.js 의 port 다음에
+    const bodyParser = require('body-parser');
+    const { User } = require("./models/User");
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+  입력
+  app.get 다음에  
+    app.post('/register', (req, res) => {
+      const user = new User(req.body)
+    
+      user.save((err, doc) => {
+        if(err) return res.json({success: false, err})
+        return res.status(200).json({success: true})
+      })
+    })
+  입력
+
+4. postman을 이용해 회원가입
+  postman에서 + 클릭
+  post 설정
+  http://localhost:3000/register
+  입력
+  body - raw - json 선택
+  그 밑에
+    {
+      "name": "jskim",
+      "email": "jskim@korac.or.kr",
+      "password": "123456789"
+    }
+  입력
+  send 클릭
+  suscess: true
+  가 뜨면 회원가입 성공
+  

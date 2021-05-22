@@ -1,0 +1,44 @@
+
+비밀 설정 정보 관리
+
+개발할때는 config/dev.js에서 배포후에는 해로쿠 사이트에서 비밀 정보를 가져오게 설정
+
+
+1. config 폴더 생성
+
+2. config 폴더 안에
+  dev.js 파일 생성
+  prod.js 파일 생성
+  key.js 파일 생성
+
+3. dev.js에
+  module.exports ={
+    mongoURI: 'mongodb+srv://yoona:nayoo@yoona.lllx3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+  }
+  입력
+
+4. key.js에
+  if(process.env.NODE_ENV === 'production') {
+    module.exports = require('/.prod')
+  } else {
+    module.exports = require('/.dev')
+  }
+  입력
+
+5. prod.js에
+  module.exports = {
+    mongoURI: process.env.MONGO_URI
+  }
+  입력
+
+6. index.js에서
+  port 다음에
+    const config = require('/.config/key')
+  추가
+  그 몽고 키 부분을 
+    config.mongoURI
+  로 수정
+
+7. .gitignore에
+  dev.js
+  추가
