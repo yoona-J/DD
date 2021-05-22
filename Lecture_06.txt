@@ -38,4 +38,11 @@ git hub - 클라우드 서비스. 다양한 사람들과 코드를 공유할 수
 
 이제 안전하게 통신할 수 있게 됨
 
-4. 
+4. github 사용법
+  git init
+  git status
+  git add .
+  git commit -m "first"
+  git branch -M main
+  git push -u origin main
+  
