@@ -2,22 +2,32 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
+
 // L9
 const config = require('./config/key')
+
+
 
 // L7
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
-
-// L7 application/x-www-form-urlencoded
+// application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
-
-// L7 application/json
+// application/json
 app.use(bodyParser.json());
+
+
 
 // L12
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
+
+
+
+// L13
+const { auth } = require('./middleware/auth');
+
 
 // L3 -> L9에서 수정
 const mongoose  = require('mongoose')
@@ -35,7 +45,7 @@ app.get('/', (req, res) => {
 
 
 // L7 회원 가입 할 때 필요한 정보들을 client에서 가져오면 그것들을 데이터 베이스에 넣어준다.
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
   const user = new User(req.body)
   
   user.save((err, doc) => {
@@ -44,8 +54,10 @@ app.post('/register', (req, res) => {
   })
 })
 
+
+
 // L11
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
   // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
   User.findOne({ email: req.body.email }, (err, user) => {
     if(!user) {
@@ -62,17 +74,55 @@ app.post('/login', (req, res) => {
 
       // 비밀번호까지 맞다면 토큰을 생성하기.
       user.generateToken((err, user) => {
+
+
+
         // L12
         if(err) return res.status(400).send(err);
         // 토큰을 저장한다. 어디에? 쿠키, 로컬스토리지 등
         res.cookie("x_auth", user.token)
           .status(200)
           .json({ loginSuccess: true, userId: user._id })
+
+
+
       })
     })
   })
 })
 
+
+
+// L13
+// role 1 어드민    role 2 특정 부서 어드민
+// role 0 일반유저  role 0 이 아니면 관리자
+app.get('api/users/auth', auth, (req, res) => {
+  // 여기까지 미들웨어를 통과해 왔다는 얘기는 Authentication 이 True 라는 말.
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? flase : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    image: req.user.image
+  })
+})
+
+
+
+// L14
+app.get('/api/users/logout', auth, (req, res) => {
+  User.findOneAndUpdate({ _id: req.user._id },
+    { token: "" }
+    , (err, user) => {
+      if(err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      })
+    })
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
