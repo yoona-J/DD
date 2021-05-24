@@ -15,3 +15,22 @@ npm install jsonwebtoken --save
 
 npm install cookie-parser --save
 
+client -> npx create-react-app .
+
+Extensions -> ES7
+
+client -> npm install react-router-dom --save
+
+client -> npm install axios --save
+
+// L22
+npm install http-proxy-middleware --save
+
+// L24
+npm install concurrently --save
+
+// L25
+client -> npm install antd --save
+
+// L27
+client -> npm install redux react-redux redux-promise redux-thunk --save

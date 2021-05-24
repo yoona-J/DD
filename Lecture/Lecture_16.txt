@@ -1,0 +1,13 @@
+
+리액트 강의 시작
+
+1. client, server 폴더 생성
+
+2. config, middleware, models, index.js를 server에 넣기
+
+3. 터미널에서 client로 디렉토리를 옮긴후
+  npx create-react-app .
+  
+  만약 설치 오류가 생긴다면
+  xcode-select --install
+  로 c 패키지? 설치

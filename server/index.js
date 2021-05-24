@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5000
 
 
 
@@ -41,6 +41,14 @@ mongoose.connect(config.mongoURI,{
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+
+
+// L21
+app.get('/api/hello', (req, res) => {
+  res.send("안녕하세요. Servo에서 보내요.")
+})
+
 
 
 
@@ -96,11 +104,11 @@ app.post('/api/users/login', (req, res) => {
 // L13
 // role 1 어드민    role 2 특정 부서 어드민
 // role 0 일반유저  role 0 이 아니면 관리자
-app.get('api/users/auth', auth, (req, res) => {
+app.get('/api/users/auth', auth, (req, res) => {
   // 여기까지 미들웨어를 통과해 왔다는 얘기는 Authentication 이 True 라는 말.
   res.status(200).json({
     _id: req.user._id,
-    isAdmin: req.user.role === 0 ? flase : true,
+    isAdmin: req.user.role === 0 ? false : true,
     isAuth: true,
     email: req.user.email,
     name: req.user.name,

@@ -1,0 +1,12 @@
+
+react 구조
+
+1. 터미널에서 client로 이동후
+  npm run start
+  를 이용하여 실행하면 리액트 페이지가 뜸
+  이는 client의 package.json에서 정의가 되어 있기 때문에 가능함
+
+  그리고 리엑트 페이지는 
+  App.js의 코드를 가져와 띄우는 것!
+
+  그리고 이 앱은 index.js에서 실행시키는 것임.
