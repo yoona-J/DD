@@ -1,30 +1,20 @@
-
-import logo from '../../../logo.svg';
 import '../../../App.css';
 
-
+import React from 'react';
+import { Alert } from 'reactstrap';
 // L34
 import { withRouter } from 'react-router-dom'
-
-
+ 
 function TestPage(props) {
     return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
+      <div>
+      <Alert color="warning">
+        This is a warning alert — check it out!
+      </Alert>
+
+        <h2>BROWN_THUMB</h2>
+          <br />
+    </div>
     )
 }
 

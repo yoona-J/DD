@@ -1,12 +1,9 @@
 // L21 수정
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 // L21
 import axios from 'axios';
-
-
-
 // L34
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -44,8 +41,8 @@ function LandingPage(props) {
             display: 'flex', justifyContent: 'center', alignItems: 'center'
             , width: '100%', height: '100vh'
         }}>
-            <h2>시작 페이지</h2>
-
+            <h2>BROWN_THUMB</h2>
+            <br />
             <button onClick={onClickHandler}>
                 로그아웃
             </button>

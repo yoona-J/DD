@@ -41,7 +41,7 @@ function LoginPage(props) {
         dispatch(loginUser(body))
             .then(response => {
                 if(response.payload.loginSuccess) {
-                    props.history.push('/')
+                    props.history.push('/register')
                 } else {
                     alert('Error')
                 }
@@ -69,6 +69,10 @@ function LoginPage(props) {
                 <br />
                 <button type="submit">
                     Login
+                </button>
+                <br />
+                <button type="register">
+                    Join
                 </button>
             </form>
         </div>

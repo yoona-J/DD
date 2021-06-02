@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-
-
 
 // L20
 import {
@@ -15,6 +12,9 @@ import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import TestPage from './components/views/TestPage/TestPage'
+import NavBar from './components/views/NavBar/NavBar'
+import HowToPage from './components/views/HowtoPage/HowToPage'
+import HelpPage from './components/views/HelpPage/HelpPage'
 import Auth from './hoc/auth'
 
 
@@ -43,6 +43,18 @@ function App() {
     // L20
     <Router>
       <div>
+          {/* <ul>
+            <li>
+              <Link to="/">MAIN</Link>
+            </li>
+            <li>
+              <Link to="/HowTo">HOW_TO</Link>
+            </li>
+            <li>
+              <Link to="/help">HELP</Link>
+            </li>
+          </ul> */}
+
         <hr />
 
         {/*
@@ -52,11 +64,14 @@ function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+        <NavBar/>
         <Switch>
-          <Route exact path="/" component={Auth(LandingPage, true)} />
-          <Route exact path="/login" component={Auth(LoginPage, true)} />
-          <Route exact path="/register" component={Auth(RegisterPage, true)} />
+          <Route exact path="/" component={Auth(LandingPage, false)} />
+          <Route exact path="/login" component={Auth(LoginPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/test" component={Auth(TestPage, false)} />
+          <Route exact path="/howto" component={Auth(HowToPage, false)} />
+          <Route exact path="/help" component={Auth(HelpPage, false)} />
         </Switch>
       </div>
     </Router>
