@@ -30,7 +30,8 @@ const { auth } = require('./middleware/auth');
 
 
 // L3 -> L9에서 수정
-const mongoose  = require('mongoose')
+const mongoose  = require('mongoose');
+const { PureComponent } = require('react');
 mongoose.connect(config.mongoURI,{
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
@@ -62,22 +63,6 @@ app.post('/api/users/register', (req, res) => {
   })
 })
 
-app.post('/api/users/servo', (req, res) => {
-  console.log(4)
-  console.log(req.body.Servo)
-  return res.json({
-    loginSuccess: false,
-    message: "제공된 이메일에 해당하는 유저가 없습니다."
-  })
-  // User.findOne({ servo: req.body.servo }, (err, user) => {
-  //   // if(buttonE == 1) {
-
-  //   // }
-  // })
-  // console.log(5)
-  //토큰 생성 후 db 저장
-})
-
 
 // L11
 app.post('/api/users/login', (req, res) => {
@@ -87,6 +72,7 @@ app.post('/api/users/login', (req, res) => {
       return res.json({
         loginSuccess: false,
         message: "제공된 이메일에 해당하는 유저가 없습니다."
+
       })
     }
     
@@ -129,16 +115,60 @@ app.get('/api/users/auth', auth, (req, res) => {
     name: req.user.name,
     lastname: req.user.lastname,
     role: req.user.role,
-    image: req.user.image
+    image: req.user.image,
+    servo: req.user.servo,
+    led: req.user.led,
+    cooler: req.user.cooler
   })
 })
-
 
 
 // L14
 app.get('/api/users/logout', auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id },
     { token: "" }
+    , (err, user) => {
+      if(err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      })
+    })
+})
+
+app.post('/api/users/servo', auth, (req, res) => {
+  console.log(4)
+  console.log(req.body.servo)
+
+  User.findOneAndUpdate({ _id: req.user._id },
+    { servo: req.body.servo }
+    , (err, user) => {
+      if(err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      })
+    })
+})
+
+app.post('/api/users/led', auth, (req, res) => {
+  console.log(4)
+  console.log(req.body.led)
+
+  User.findOneAndUpdate({ _id: req.user._id },
+    { led: req.body.led }
+    , (err, user) => {
+      if(err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true
+      })
+    })
+})
+
+app.post('/api/users/cooler', auth, (req, res) => {
+  console.log(4)
+  console.log(req.body.cooler)
+
+  User.findOneAndUpdate({ _id: req.user._id },
+    { cooler: req.body.cooler }
     , (err, user) => {
       if(err) return res.json({ success: false, err });
       return res.status(200).send({

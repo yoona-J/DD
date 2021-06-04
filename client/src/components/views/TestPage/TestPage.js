@@ -27,84 +27,51 @@ function TestPage(props) {
   }
 
   const openHandler = () => {
-    console.log(1)
-    
-
     let body = {
-        Servo: 1
+        servo: 1
     }
-    console.log(2)
-
-    
     axios.post ('/api/users/servo', body)
     .then(response => response.data)
-    // console.log(response.data)
-    console.log(3)
   }
 
   const closeHandler = () => {
-    axios.get('/api/users/logout')
-        .then(response => {
-            //console.log(response.data)
-            
-            if(response.data.success) {
-                props.history.push("/")
-            } else {
-                alert('logOut 하는데 실패 했습니다.')
-            }
-        })
+    let body = {
+        servo: 2
+    }
+    axios.post ('/api/users/servo', body)
+    .then(response => response.data)
   }
 
   const onCoolerHandler = () => {
-    axios.get('/api/users/logout')
-        .then(response => {
-            //console.log(response.data)
-            
-            if(response.data.success) {
-                props.history.push("/")
-            } else {
-                alert('logOut 하는데 실패 했습니다.')
-            }
-        })
+      let body = {
+        cooler: 1
+    }
+    axios.post ('/api/users/cooler', body)
+    .then(response => response.data)
   }
 
   const offCoolerHandler = () => {
-    axios.get('/api/users/logout')
-        .then(response => {
-            //console.log(response.data)
-            
-            if(response.data.success) {
-                props.history.push("/")
-            } else {
-                alert('logOut 하는데 실패 했습니다.')
-            }
-        })
+      let body = {
+        cooler: 2
+      }
+      axios.post ('/api/users/cooler', body)
+      .then(response => response.data)
   }
 
   const onLedHandler = () => {
-    axios.get('/api/users/logout')
-        .then(response => {
-            //console.log(response.data)
-            
-            if(response.data.success) {
-                props.history.push("/")
-            } else {
-                alert('logOut 하는데 실패 했습니다.')
-            }
-        })
+    let body = {
+      led: 1
+    }
+    axios.post ('/api/users/led', body)
+    .then(response => response.data)
   }
 
   const offLedHandler = () => {
-    axios.get('/api/users/logout')
-        .then(response => {
-            //console.log(response.data)
-            
-            if(response.data.success) {
-                props.history.push("/")
-            } else {
-                alert('logOut 하는데 실패 했습니다.')
-            }
-        })
+    let body = {
+      led: 2
+    }
+    axios.post ('/api/users/led', body)
+    .then(response => response.data)
   }
 
   const [activeTab, setActiveTab] = useState('1');
