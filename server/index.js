@@ -62,6 +62,21 @@ app.post('/api/users/register', (req, res) => {
   })
 })
 
+app.post('/api/users/servo', (req, res) => {
+  console.log(4)
+  console.log(req.body.Servo)
+  return res.json({
+    loginSuccess: false,
+    message: "제공된 이메일에 해당하는 유저가 없습니다."
+  })
+  // User.findOne({ servo: req.body.servo }, (err, user) => {
+  //   // if(buttonE == 1) {
+
+  //   // }
+  // })
+  // console.log(5)
+  //토큰 생성 후 db 저장
+})
 
 
 // L11

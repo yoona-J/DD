@@ -24,7 +24,7 @@ export default function(SpecificComponent, option, adminRoute = null) {
                 // 로그인 하지 않은 상태
                 if(!response.payload.isAuth) {
                     if(option) {
-                        props.history.push('/login')
+                        props.history.push('/')
                     }
                 } else {
                     // 로그인 한 상태
@@ -32,9 +32,7 @@ export default function(SpecificComponent, option, adminRoute = null) {
                         props.history.push('/')
                     } else {
                         if(option === false) {
-                            props.history.push('/test')
-                            props.history.push('/howTo')
-                            props.history.push('/help')
+                            props.history.push('/')
                         }
                     }
                 }

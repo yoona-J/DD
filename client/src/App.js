@@ -63,16 +63,17 @@ function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
-        
+
         <hr />
         <NavBar/>
+        <hr />
         <Switch>
-          <Route exact path="/" component={Auth(LandingPage, false)} />
-          <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/test" component={Auth(TestPage, false)} />
-          <Route exact path="/howto" component={Auth(HowToPage, false)} />
-          <Route exact path="/help" component={Auth(HelpPage, false)} />
+          <Route exact path="/" component={Auth(LandingPage, null)} />
+          <Route exact path="/login" component={Auth(LoginPage, null)} />
+          <Route exact path="/register" component={Auth(RegisterPage, null)} />
+          <Route exact path="/test" component={Auth(TestPage, null)} />
+          <Route exact path="/howto" component={Auth(HowToPage, null)} />
+          <Route exact path="/help" component={Auth(HelpPage, null)} />
         </Switch>
       </div>
     </Router>

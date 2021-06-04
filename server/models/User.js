@@ -41,6 +41,15 @@ const userSchema = mongoose.Schema({
     },
     tokenExp: {
         type: Number
+    },
+    servo: {
+        type: Number
+    },
+    cooler: {
+        type: Number
+    },
+    led: {
+        type: Number
     }
     
 })
