@@ -13,13 +13,13 @@ export const NavBar = (props) => {
           <Collapse isOpen={!collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="/TestPage/">MAIN</NavLink>
+                <NavLink href="/test">MAIN</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/HowToPage/">HOW_TO</NavLink>
+                <NavLink href="/howTo">HOW_TO</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/HelpPage/">HELP</NavLink>
+                <NavLink href="/help">HELP</NavLink>
               </NavItem>
             </Nav>  
           </Collapse>

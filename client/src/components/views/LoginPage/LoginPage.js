@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../../_actions/user_action';
 
-
+import Axios from 'axios';
 
 // L34
 import { withRouter } from 'react-router-dom'
@@ -38,10 +38,15 @@ function LoginPage(props) {
             password: Password
         }
 
+        Axios.post ('/api/users/login', body)
+        .then(response => {
+
+        })
+
         dispatch(loginUser(body))
             .then(response => {
                 if(response.payload.loginSuccess) {
-                    props.history.push('/register')
+                    props.history.push('/test')
                 } else {
                     alert('Error')
                 }
