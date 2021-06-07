@@ -12,45 +12,11 @@ import { Link } from 'react-router-dom';
 
 function LandingPage(props) {
 
-
-
     // L21
     useEffect(() => {
         axios.get('/api/hello')
             .then(response => console.log(response.data))
     }, [])
-
-
-
-    // L31 - button event
-
-    // const onClickHandler = () => {
-    //     axios.get('/api/users/logout')
-    //         .then(response => {
-    //             //console.log(response.data)
-                
-    //             if(response.data.success) {
-    //                 props.history.push("/login")
-    //             } else {
-    //                 alert('logOut 하는데 실패 했습니다.')
-    //             }
-    //         })
-    // }
-
-
-    // L27, L31-로그아웃 버튼 생성
-    // return (
-    //     <div style={{
-    //         display: 'flex', justifyContent: 'center', alignItems: 'center'
-    //         , width: '100%', height: '100vh'
-    //     }}>
-    //         <h2>BROWN_THUMB</h2>
-    //         <br />
-    //             <button onClick={onClickHandler}>
-    //                 로그인
-    //             </button>
-    //     </div>
-    // )
         return (
             <div style={{
                     display: 'flex', justifyContent: 'center', alignItems: 'center'
@@ -67,9 +33,6 @@ function LandingPage(props) {
             <Link to = "./register">
                 <Button color="warning">JOIN</Button>{' '}
             </Link>
-            {/* <button onClick={onClickHandler}>
-                로그인
-            </button> */}
           </div>
         );
       }      

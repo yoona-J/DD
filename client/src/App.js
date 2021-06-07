@@ -16,6 +16,7 @@ import TestPage from './components/views/TestPage/TestPage'
 import NavBar from './components/views/NavBar/NavBar'
 import HowToPage from './components/views/HowtoPage/HowToPage'
 import HelpPage from './components/views/HelpPage/HelpPage'
+import PlusPage from './components/views/PlusPage/PlusPage'
 import Auth from './hoc/auth'
 
 
@@ -74,6 +75,7 @@ function App() {
           <Route exact path="/test" component={Auth(TestPage, null)} />
           <Route exact path="/howto" component={Auth(HowToPage, null)} />
           <Route exact path="/help" component={Auth(HelpPage, null)} />
+          <Route exact path="/plus" component={Auth(PlusPage, null)} />
         </Switch>
       </div>
     </Router>

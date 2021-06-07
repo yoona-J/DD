@@ -1,17 +1,19 @@
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron, Card, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 const Example = (props) => {
   return (
     <div>
       <Jumbotron>
-        <h2>HOW TO-</h2>
-        <p className="lead">스마트팜을 처음 사용해보는 당신에게-</p>
+        <br />
+        <h3>HOW TO-</h3>
+        <br />
+        <h6>스마트팜을 처음 사용해보는 당신에게-</h6>
+        <br />
         <hr className="my-2" />
-
-        <h3><p>WHAT IS SMART-FARM?</p></h3>
+        <br />
+        <h4>WHAT IS SMART-FARM?</h4>
         <br /> 
-        <br /><br />
         <p>누구나 한번쯤 식물을 키워 본 경험이 있을 것입니다.</p>
         <p>그것이 화분일 수도 있고, 식재료일 수 있습니다.</p>
         <br />
@@ -27,17 +29,46 @@ const Example = (props) => {
         <p>이러한 기술을 이용해 아두이노로 IOT 미니 스마트팜을 만들어 우리의 작은 농장을 좀 더 쉽고 편하게 기를 수 있도록 제작한 것이 BROWN-THUMB의 미니 스마트팜입니다.</p>
         <br />
         <p className="lead">
-          <Button color="primary">Learn More</Button>
         </p>
 
         <hr />
-        <h3><p>HOW CAN WE USE?</p></h3>
-        <p></p>
+        <br />
+        <h4>HOW CAN WE USE?</h4>
+        <br />
+        <p>1. 메인 페이지 오른쪽 하단에 위치한 미니 스마트팜 추가하기 버튼을 눌러주세요.</p>
+        <p>2. 자신이 가지고 있는 해당 스마트팜의 일련 코드번호를 입력해 검색해주세요.</p>
+        <p>3. 해당 스마트팜에 이름을 넣어주면 자동적으로 오른쪽 상태 부분에 나타나게 됩니다.</p>
+        <br />
+        <p>등록된 스마트팜의 온습도 확인, LED 전등, 스프링클러, 천장 개폐장치 on/off 버튼은 모두 wifi 통신으로 이루어집니다.</p>
+        <br />
+        <hr className="my-2" />
+        <br />
+        <h4>! TIP !</h4>
+        <br />
+        <p>등록된 모든 기기는 온습도 설정이 기본으로 되어있습니다.</p>
+        <p>(온도 : 최저 21도, 최고 25도 / 습도 : 최저 40%, 최고 70%)</p>
+        <br />
+        <p>help 메뉴에서 자신의 식물을 검색해보고 자신의 식물에 맞는 온습도로 바꿔주세요!</p>
         <p className="lead">
-          <Button color="primary">Learn More</Button>
         </p>
       </Jumbotron>
-    </div>
+      <div className="p-3 bg-warning my-2 rounded">
+              <Row>
+            <Col sm="6">
+              <Card body>
+                <CardTitle tag="h5">CALL</CardTitle>
+                <CardText><a href = "tel: 01021687553">010-2168-7553</a></CardText>
+              </Card>
+            </Col>
+            <Col sm="6">
+              <Card body>
+                <CardTitle tag="h5">E-MAIL</CardTitle>
+                <CardText><a href = "mailto: jya2005973@student.hywoman.ac.kr">jya2005973@student.hywoman.ac.kr</a></CardText>
+              </Card>
+            </Col>
+          </Row>
+      </div>
+   </div>
   );
 };
 

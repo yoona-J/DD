@@ -39,10 +39,11 @@ class Weather extends Component {
       } else {
         return (
           <div className = "WeatherDiv">
-              <br />
-            {/* <img src = {require ('../img/sun-3000997_1280.jpg')}/> */}
-            <p>{this.state.temp}C</p>
-            <p>현재 날씨 : {this.state.desc}</p>
+            <h5>TODAY'S WEATHER</h5>
+            <br />
+            <h6>{this.state.temp}C</h6>
+            <br />
+            <h6>현재 날씨 : {this.state.desc}</h6>
           </div>
         );
       }

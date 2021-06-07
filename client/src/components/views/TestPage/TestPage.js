@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 import { Alert } from 'reactstrap';
 // L34
 import { withRouter } from 'react-router-dom'
-//import { get } from 'mongoose';
-//import { response } from 'express';
 import Weather from '../../Weather';
 
-import { TabContent, TabPane, Nav, NavItem, NavLink, Button, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
+import { Button, Card, CardTitle, CardGroup, CardBody} from 'reactstrap';
+//import classnames from 'classnames';
 
 function TestPage(props) {
 
+  //button event - logout, servo, cooler, led
   const onClickHandler = () => {
     axios.get('/api/users/logout')
         .then(response => {
@@ -82,84 +81,56 @@ function TestPage(props) {
 
     return (
       <div>
-        <br />
-      <Alert color="warning">
-      LIVING_FARM 의 습도가 40 이하로 떨어졌습니다. 스프링클러를 켜주세요.
-      </Alert>
+          <Alert color="warning">
+            LIVING_FARM 의 습도가 40 이하로 떨어졌습니다. 스프링클러를 켜주세요.
+          </Alert>
 
-      <Weather />
-      <br />
+        <Alert color="primary">
+        <Weather />
+        </Alert>
 
-      <Alert color="warning">
-      TIP - 오늘은 개폐장치를 열고 밖에 식물들을 내놓아도 좋은 날씨에요!
-      </Alert>
+        <Alert color="warning">
+          TIP - 오늘은 개폐장치를 열고 밖에 식물들을 내놓아도 좋은 날씨에요!
+        </Alert>
 
         <div>
-          <Nav tabs>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === '1' })}
-                onClick={() => { toggle('1'); }}
-              >
-                천장개폐장치
-              </NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === '2' })}
-                onClick={() => { toggle('2'); }}
-              >
-                스프링클러
-              </NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === '3' })}
-                onClick={() => { toggle('3'); }}
-              >
-                LED
-              </NavLink>
-            </NavItem>
-
-          </Nav>
-          <TabContent activeTab={activeTab}>
-            <TabPane tabId="1">
-              <Row>
-                <Col sm="12">
+          <CardGroup>
+            <Card>
+              <CardBody>
+                <CardTitle tag="h5">천장개폐장치</CardTitle>
                 <Button outline color="primary" onClick={openHandler}>   ON   </Button>{' '}
                 <Button color="info" onClick={closeHandler}>   OFF   </Button>{' '}
-
-                </Col>
-              </Row>
-            </TabPane>
-
-            <TabPane tabId="2">
-              <Row>
-                <Col sm="6">
+              </CardBody>
+            </Card>
+            <Card>
+              <CardBody>
+                <CardTitle tag="h5">스프링클러</CardTitle>
                 <Button outline color="primary" onClick={onCoolerHandler}>   ON   </Button>{' '}
                 <Button color="info" onClick={offCoolerHandler}>   OFF   </Button>{' '}
-                </Col>
-              </Row>
-            </TabPane>
-
-            <TabPane tabId="3">
-              <Row>
-                <Col sm="12">
+              </CardBody>
+            </Card>
+            <Card>
+              <CardBody>
+                <CardTitle tag="h5">LED</CardTitle>
                 <Button outline color="primary" onClick={onLedHandler}>   ON   </Button>{' '}
                 <Button color="info" onClick={offLedHandler}>   OFF   </Button>{' '}
-                </Col>
-              </Row>
-            </TabPane>
-
-          </TabContent>
-        </div>
-
+              </CardBody>
+            </Card>
+          </CardGroup>
           <br />
-        <button onClick={onClickHandler}>
-                LOG-OUT
-        </button>
+          <Alert color="success">
+            <h4 className="alert-heading">MY OWN SMART FARM</h4>
+            <hr />
+              <p>
+              미니 스마트팜 추가하기
+              </p>  
+            <Button color="success" href = "/plus">PLUS</Button>{' '}
+          </Alert>
+        </div>
+          <br />
+          <Button color="warning" onClick={onClickHandler}>
+            LOG-OUT
+          </Button>{' '}
     </div>
     
     )
